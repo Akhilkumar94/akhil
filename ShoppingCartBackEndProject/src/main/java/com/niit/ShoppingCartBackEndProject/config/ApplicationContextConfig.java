@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,13 +17,11 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.niit.ShoppingCartBackEndProject.DAO.CategoryDAO;
-import com.niit.ShoppingCartBackEndProject.DAO.CategoryDAOImpl;
-import com.niit.ShoppingCartBackEndProject.DAO.SupplierDAO;
-import com.niit.ShoppingCartBackEndProject.DAO.SupplierDAOImpl;
+
 import com.niit.ShoppingCartBackEndProject.model.Category;
 import com.niit.ShoppingCartBackEndProject.model.Product;
 import com.niit.ShoppingCartBackEndProject.model.Supplier;
+import com.niit.ShoppingCartBackEndProject.model.User;
 
 @Configuration
 @ComponentScan("com.niit.ShoppingCartBackEndProject")
@@ -57,6 +56,7 @@ public SessionFactory getSessionFactory(DataSource datasource)
 	sessionBuilder.addAnnotatedClass(Category.class);
 	sessionBuilder.addAnnotatedClass(Supplier.class);
 	sessionBuilder.addAnnotatedClass(Product.class);
+	sessionBuilder.addAnnotatedClass(User.class);
     return sessionBuilder.buildSessionFactory();
 }
 @Autowired
